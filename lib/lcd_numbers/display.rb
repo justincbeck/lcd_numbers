@@ -54,23 +54,11 @@ module LcdNumbers
     def process_row(segments)
       @digit_col_count.times do |c|
         if c == 0
-          if SEGMENTS_MAP[@number].include?(segments[0])
-            @row += "|"
-          else
-            @row += " "
-          end
+          @row += SEGMENTS_MAP[@number].include?(segments[0]) ? "|" : " "
         elsif c < (@digit_col_count - 1)
-          if SEGMENTS_MAP[@number].include?(segments[1])
-            @row += "_"
-          else
-            @row += " "
-          end
+          @row += SEGMENTS_MAP[@number].include?(segments[1]) ? "_" : " "
         else
-          if SEGMENTS_MAP[@number].include?(segments[2])
-            @row += "|"
-          else
-            @row += " "
-          end
+          @row += SEGMENTS_MAP[@number].include?(segments[2]) ? "|" : " "
         end
       end
     end
