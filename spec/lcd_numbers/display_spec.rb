@@ -162,12 +162,12 @@ module LcdNumbers
       end
 
       it "should output the number 1972 in a 7 segment read out with a size of 2" do
-        output.should_receive(:puts).with("     __  __  __ \n   ||  |   |   |\n   ||__|   | __|\n   |   |   ||   \n   | __|   ||__ ")
+        output.should_receive(:puts).with("      __   __   __ \n   | |  |    |    |\n   | |__|    |  __|\n   |    |    | |   \n   |  __|    | |__ ")
         display.print_num(2, 1972)
       end
 
       it "should output the number 42 in a 7 segment read out with a size of 5" do
-        output.should_receive(:puts).with("        _____ \n|     |      |\n|     |      |\n|     |      |\n|     |      |\n|_____| _____|\n      ||      \n      ||      \n      ||      \n      ||      \n      ||_____ ")
+        output.should_receive(:puts).with("         _____ \n|     |       |\n|     |       |\n|     |       |\n|     |       |\n|_____|  _____|\n      | |      \n      | |      \n      | |      \n      | |      \n      | |_____ ")
         display.print_num(5, 42)
       end
     end

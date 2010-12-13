@@ -53,6 +53,8 @@ module LcdNumbers
         else
           construct_row([5, 6, 7])
         end
+        
+        @row += " " unless number == @numbers.last
       end
       
       @row
