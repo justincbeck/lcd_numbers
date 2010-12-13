@@ -48,7 +48,7 @@ module LcdNumbers
           construct_row([2, nil, 4])
         elsif r == @median
           construct_row([2, 3, 4])
-        elsif r > @median and r < (@row_count - 1)
+        elsif r < (@row_count - 1)
           construct_row([5, nil, 7])
         else
           construct_row([5, 6, 7])
