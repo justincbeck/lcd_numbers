@@ -3,7 +3,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'lcd_numbers'
 
 display = LcdNumbers::Display.new(STDOUT)
-(1..10).each do |i|
+(1..3).each do |i|
   (0..9).each do |j|
     display.print_num(i, j)
   end
