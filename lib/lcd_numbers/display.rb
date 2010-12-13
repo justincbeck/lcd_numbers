@@ -54,7 +54,7 @@ module LcdNumbers
           construct_row([5, 6, 7])
         end
         
-        @row += " " unless i == @numbers.size - 1
+        @row += " " unless i == (@numbers.size - 1)
       end
       
       @row
