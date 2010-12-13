@@ -14,7 +14,7 @@ module LcdNumbers
     
     def print_num(segment_size, number)
       @size = segment_size
-      @number = number
+      @numbers = digit_array(number)
       
       calculate_digit_size
       print
@@ -36,16 +36,20 @@ module LcdNumbers
     def build_row(r)
       @row = String.new
       
-      if r == 0
-        process_row([nil, 1, nil])
-      elsif r < @median
-        process_row([2, nil, 4])
-      elsif r == @median
-        process_row([2, 3, 4])
-      elsif r > @median and r < (@row_count - 1)
-        process_row([5, nil, 7])
-      else
-        process_row([5, 6, 7])
+      @numbers.each do |number|
+        @number = number
+        
+        if r == 0
+          process_row([nil, 1, nil])
+        elsif r < @median
+          process_row([2, nil, 4])
+        elsif r == @median
+          process_row([2, 3, 4])
+        elsif r > @median and r < (@row_count - 1)
+          process_row([5, nil, 7])
+        else
+          process_row([5, 6, 7])
+        end
       end
       
       @row
@@ -66,8 +70,12 @@ module LcdNumbers
     def calculate_digit_size
       @row_count = (2 * @size) + 1
       @digit_col_count = @size + 2
-      @total_col_count = ((@number.to_s.length + 1) * @digit_col_count) - 1
+      @total_col_count = @number.to_s.length == 1 ? @digit_col_count : ((@number.to_s.length + 1) * @digit_col_count) - 1
       @median = ((@row_count - 1) / 2)
+    end
+    
+    def digit_array(number)
+      number.to_s.split(%r{\s*}).collect { |s| s.to_i }
     end
 
     SEGMENTS_MAP = {
