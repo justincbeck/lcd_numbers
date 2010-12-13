@@ -1,4 +1,4 @@
-# This module prints a single digit as an LCD segment display
+# This module prints a number as an LCD segment display
 # The segments are numbered as follows:
 #   1
 # 2   4
