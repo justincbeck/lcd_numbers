@@ -39,8 +39,8 @@ module LcdNumbers
     def process_row(r)
       @row = String.new
       
-      @numbers.each do |number|
-        @number = number
+      @numbers.each_index do |i|
+        @number = @numbers[i]
         
         if r == 0
           construct_row([nil, 1, nil])
@@ -54,7 +54,7 @@ module LcdNumbers
           construct_row([5, 6, 7])
         end
         
-        @row += " " unless number == @numbers.last
+        @row += " " unless i == @numbers.size - 1
       end
       
       @row

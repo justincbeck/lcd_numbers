@@ -157,7 +157,7 @@ module LcdNumbers
       end
       
       it "should output the number 11 in a 7 segment read out with a size of 1" do
-        output.should_receive(:puts).with("      \n  |  |\n  |  |")
+        output.should_receive(:puts).with("       \n  |   |\n  |   |")
         display.print_num(1, 11)
       end
 
