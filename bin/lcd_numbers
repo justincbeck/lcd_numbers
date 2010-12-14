@@ -3,22 +3,17 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'lcd_numbers'
 
 display = LcdNumbers::Display.new(STDOUT)
-while true do
-  puts "Please enter a segment size:"
-  STDOUT.flush
-  segment_size = gets.chomp
-  if segment_size == 'q'
-    puts "Goodbye!"
-    exit
+
+if ARGV.length == 3
+  if ARGV[0].index(/-s/)
+    if ARGV[1].index(/\d+/) and ARGV[2].index(/\d+/)
+      display.print_num(ARGV[1].to_i, ARGV[2].to_i)
+    end
+  else
+    puts "Usage: lcd_numbers [-s segment_size] number"
   end
-  
-  puts "Please enter a number:"
-  STDOUT.flush
-  number = gets.chomp
-  if number == 'q'
-    puts "Goodbye!"
-    exit
-  end
-  
-  display.print_num(segment_size.to_i, number.to_i)
+elsif ARGV.length == 1 and ARGV[0].index(/\d+/)
+  display.print_num(2, ARGV[0].to_i)
+else
+  puts "Usage: lcd_numbers [-s segment_size] number"
 end
