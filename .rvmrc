@@ -1,6 +1,6 @@
-if [[ -d "$rvm_path/environments" && -s "$rvm_path/environments/ruby-1.9.2-p0@lcd_numbers" ]] ; then
-  \. "$rvm_path/environments/ruby-1.9.2-p0@lcd_numbers"
+if [[ -d "$rvm_path/environments" && -s "$rvm_path/environments/ruby-1.9.2-p136@lcd_numbers" ]] ; then
+  \. "$rvm_path/environments/ruby-1.9.2-p136@lcd_numbers"
 else
-  rvm --create use  "ruby-1.9.2-p0@lcd_numbers"
+  rvm --create use  "ruby-1.9.2-p136@lcd_numbers"
 fi
 
